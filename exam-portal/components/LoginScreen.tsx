@@ -12,28 +12,52 @@ const LoginPage: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
   
-    try {
-      const response = await axios.post('http://localhost:3000/login', {
-        email,
-        password,
-      });
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/login', {
+  //       email,
+  //       password,
+  //     });
   
-      if (response.data && response.data.userId) {
-        localStorage.setItem('userId', response.data.userId); // Storing user ID in local storage
-        router.push('/user');
-        setMessage('Login successful!');
-      } else {
-        setMessage('Login failed. No user ID returned.');
-      }
-    } catch (error) {
-      if (axios.isAxiosError(error) && error.response) {
-        setMessage(error.response.data);
-      } else {
-        setMessage('An error occurred while logging in.');
-      }
+  //     if (response.data && response.data.userId) {
+  //       localStorage.setItem('userId', response.data.userId); // Storing user ID in local storage
+  //       router.push('/user');
+  //       setMessage('Login successful!');
+  //     } else {
+  //       setMessage('Login failed. No user ID returned.');
+  //     }
+  //   } catch (error) {
+  //     if (axios.isAxiosError(error) && error.response) {
+  //       setMessage(error.response.data);
+  //     } else {
+  //       setMessage('An error occurred while logging in.');
+  //     }
+  //   }
+  // };
+  
+  
+  try {
+    // Check if email and password are both 'admin'
+    if (email === 'admin@gmail.com' && password === 'admin') {
+      // Navigate to the authority page
+      router.push('/authority');
+    } else {
     }
-  };
-  
+    const response = await axios.post('http://localhost:3000/login', {
+      email,
+      password,
+    });
+      // Navigate to the user page
+      router.push('/user');
+
+    setMessage('Login successful!');
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      setMessage(error.response.data);
+    } else {
+      setMessage('An error occurred while logging in.');
+    }
+  }
+};
 
   return (
     <div className="flex items-center justify-center h-screen relative bg-slate-200">
