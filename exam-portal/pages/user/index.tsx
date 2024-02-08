@@ -7,7 +7,7 @@ const LogoHeader = () => {
   return (
     <header className="flex items-center justify-between p-4 bg-blue-800 text-white">
       {/* Placeholder for logo */}
-      <Image src="/assets/images/LOGo.jpg" width={200} height={100} alt="Org Logo" className="pb-4"/>
+      <Image src="/assets/images/examportal.png" width={200} height={100} alt="Org Logo" className="pb-4"/>
       <h2 className="text-xl font-semibold">Candidate Name</h2>
     </header>
   );

@@ -197,17 +197,18 @@ const QuestionsDisplay: React.FC = () => {
 
   return (
     <div className='m-[20px] border border-slate-200 p-4 rounded-md shadow-2xl h-screen overflow-y-auto'>
+                <div className='text-black text-xl'>
+            Question {currentQuestionIndex + 1}: {currentQuestion.questionText}
+          </div>
       {currentQuestion ? (
         <div>
           {currentQuestion.questionImage && (
             <img
               src={'data:image;base64,' + currentQuestion.questionImage}
-              className='my-4 max-h-[300px] max-w-[100%] object-cover'
+              className='my-4 h-[400px] w-[1000px]'
             />
           )}
-          <div className='text-black'>
-            Question {currentQuestionIndex + 1}: {currentQuestion.questionText}
-          </div>
+
           <input
             type='text'
             value={answer}

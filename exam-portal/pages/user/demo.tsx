@@ -53,7 +53,7 @@ const QuestionCard: React.FC<{ question: typeof questions[number]; onInputChange
       <div className="flex flex-col items-start space-y-4">
         <div className="text-lg font-semibold text-black">Question {question.questionNumber}:</div>
         <p className="text-gray-700">{question.questionText}</p>
-        <img src={question.imageUrl} alt="Question Illustration" className="my-4 max-h-[300px] max-w-[100%] object-cover" />
+        <img src={question.imageUrl} alt="Question Illustration" className="my-4 h-[400px] w-[1000px]" />
         <input
           type="text"
           value={answer}
